@@ -25,5 +25,9 @@ public class UserService {
         return null;
     }
 
+    private List<UserResponseRecordDTO> toDTO(){
+        UserResponseRecordDTO userDTO;
+        
+    }
 
 }
