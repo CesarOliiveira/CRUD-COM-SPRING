@@ -8,5 +8,4 @@ import java.util.UUID;
 
 @Repository
 public interface iUserRepository extends JpaRepository<UserModel, UUID> {
-
 }

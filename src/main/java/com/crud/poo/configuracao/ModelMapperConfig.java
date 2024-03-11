@@ -1,4 +1,4 @@
-package com.crud.poo.configuraao;
+package com.crud.poo.configuracao;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;

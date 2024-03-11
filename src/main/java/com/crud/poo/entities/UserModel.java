@@ -13,6 +13,7 @@ import java.util.UUID;
 @Setter
 public class UserModel implements Serializable {
     private static final long serialVersionUID = 1L;
+
     @Id @GeneratedValue(strategy = GenerationType.UUID)
     private UUID idUser;
     private String nome;

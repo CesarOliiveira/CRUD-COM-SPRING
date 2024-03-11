@@ -1,18 +1,16 @@
 package com.crud.poo.services;
 
 
-import com.crud.poo.dtos.UserResponseRecordDTO;
-import com.crud.poo.dtos.convert.convertEntityToDTO;
+import com.crud.poo.dtos.userdtos.UserMapper;
+import com.crud.poo.dtos.userdtos.UserResponseDTO;
 import com.crud.poo.entities.UserModel;
 import com.crud.poo.repositories.iUserRepository;
-import com.crud.poo.services.interfaces.iUserServices;
+
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 
 @Service
@@ -21,9 +19,15 @@ public class UserService {
     @Autowired
     private iUserRepository userRepository;
 
-    public List<UserResponseRecordDTO> findAll(){
-        return null;
+    @Autowired
+    private ModelMapper mapper;
+
+    public List<UserResponseDTO> findAll(){
+        List<UserModel> list = userRepository.findAll();
+        return UserMapper.toUserResponse(list);
     }
+
+
 
 
 }
