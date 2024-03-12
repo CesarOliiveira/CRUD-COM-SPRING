@@ -1,9 +1,9 @@
 package com.crud.poo.services.interfaces;
 
-import com.crud.poo.dtos.userdtos.UserRequest;
+import com.crud.poo.dtos.userdtos.UserRequestDTO;
 
 import java.util.List;
 
 public interface iUserServices {
-    List<UserRequest> findAll();
+    List<UserRequestDTO> findAll();
 }

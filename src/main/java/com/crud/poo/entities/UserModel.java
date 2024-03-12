@@ -12,9 +12,9 @@ import java.util.UUID;
 @Getter
 @Setter
 public class UserModel implements Serializable {
-    private static final long serialVersionUID = 1L;
 
-    @Id @GeneratedValue(strategy = GenerationType.UUID)
+
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID idUser;
     private String nome;
     private String email;
