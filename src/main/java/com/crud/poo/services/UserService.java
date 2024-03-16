@@ -11,6 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.UUID;
 
 
 @Service
@@ -28,6 +31,14 @@ public class UserService {
         UserModel response = userRepository.save(request);
         return UserMapper.toUserCreateResponse(response);
 
+    }
+
+    public Optional<UserModel> findByName(String Name){
+        return userRepository.findByNome(Name);
+    }
+
+    public Optional<UserModel> findById(UUID id){
+        return userRepository.findById(id);
     }
 
 }
