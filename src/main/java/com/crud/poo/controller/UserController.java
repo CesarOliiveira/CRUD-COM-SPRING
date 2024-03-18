@@ -55,9 +55,23 @@ public class UserController {
         if(user.isEmpty()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found");
         }
+
         var userModel = user.get();
         BeanUtils.copyProperties(request, userModel);
         return ResponseEntity.status(HttpStatus.OK).body(userService.create(userModel));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Object> deleteUser(@PathVariable(value = "id") UUID id){
+        Optional<UserModel> userDelete = userService.findById(id);
+
+        if(userDelete.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User Not Found.");
+        }
+
+        userService.delete(userDelete.get());
+
+        return ResponseEntity.status(HttpStatus.OK).body("User deleted successfully.");
     }
 
 
